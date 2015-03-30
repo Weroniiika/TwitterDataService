@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1011]C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\TwitterWCFService.Tests\bin\Debug\TwitterWCFService.Tests.dll</TopNode>
+  <SelectedNode>[0-1011]C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\TwitterWCFService.Tests\bin\Debug\TwitterWCFService.Tests.dll</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1011]C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\TwitterWCFService.Tests\bin\Debug\TwitterWCFService.Tests.dll" Expanded="true" />
+    <Node UniqueName="[0-1012]TwitterWCFService" Expanded="true" />
+    <Node UniqueName="[0-1013]TwitterWCFService.Tests" Expanded="true" />
+    <Node UniqueName="[0-1000]TwitterWCFService.Tests.AuthorizationTests" Expanded="true" />
+    <Node UniqueName="[0-1005]TwitterWCFService.Tests.TwitterRequestFactoryTests" Expanded="true" />
+  </Nodes>
+</VisualState>

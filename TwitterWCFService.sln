@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterWCFService", "ServiceExample\TwitterWCFService.csproj", "{8924180F-08F7-4C15-B587-A8BAD5DA473A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitterWCFService.Tests", "TwitterWCFService.Tests\TwitterWCFService.Tests.csproj", "{68B9B527-E187-4374-A3F9-E9D7F81C4F3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceHost", "..\ServiceHost\ServiceHost\ServiceHost.csproj", "{5B552013-8249-42EE-9BB6-F1D130C2FDA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8924180F-08F7-4C15-B587-A8BAD5DA473A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8924180F-08F7-4C15-B587-A8BAD5DA473A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8924180F-08F7-4C15-B587-A8BAD5DA473A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8924180F-08F7-4C15-B587-A8BAD5DA473A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68B9B527-E187-4374-A3F9-E9D7F81C4F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68B9B527-E187-4374-A3F9-E9D7F81C4F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68B9B527-E187-4374-A3F9-E9D7F81C4F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68B9B527-E187-4374-A3F9-E9D7F81C4F3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B552013-8249-42EE-9BB6-F1D130C2FDA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B552013-8249-42EE-9BB6-F1D130C2FDA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B552013-8249-42EE-9BB6-F1D130C2FDA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B552013-8249-42EE-9BB6-F1D130C2FDA7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
