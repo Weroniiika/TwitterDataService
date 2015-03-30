@@ -12,10 +12,8 @@ and three other allow to retrieve data from database and get some overview of tw
 How to try project?
 -------------------
 
-If you want to download a project and try it out you need a service host and a client that would communicate with service.
-You can find them on my github account: ServiceHost and TwitterMonitor (client). In order to run the projects localy you need
-to have installed Visual Studio (I worked on VS Express 2013 for Web). Some configuration changes may be also required depending
-on you environment, so you should have some minimun familiarity with .NET. 
+If you want to download a project and try it out localy you need a service host and a client that would communicate with service.
+You can find them on my github account: ServiceHost and TwitterMonitor (client). Some configuration changes in project may be also required depending on your environment, so you should have some minimun familiarity with .NET. 
 
 Contact
 -------
