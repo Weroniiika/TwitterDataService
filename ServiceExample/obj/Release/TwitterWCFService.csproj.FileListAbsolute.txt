@@ -12,6 +12,8 @@ C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\Servic
 C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\ServiceExample\bin\System.Web.WebPages.Deployment.dll
 C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\ServiceExample\bin\System.Web.WebPages.dll
 C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\ServiceExample\bin\System.Web.WebPages.Razor.dll
+C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\ServiceExample\bin\WCFServiceLogger.dll
+C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\ServiceExample\bin\WCFServiceLogger.pdb
 C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\ServiceExample\bin\Autofac.xml
 C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\ServiceExample\bin\Autofac.Integration.Mvc.xml
 C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\ServiceExample\bin\EntityFramework.xml
@@ -27,3 +29,4 @@ C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\Servic
 C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\ServiceExample\obj\Release\TwitterWCFService.pdb
 C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\ServiceExample\bin\NLog.dll
 C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\ServiceExample\bin\NLog.xml
+C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\ServiceExample\bin\NLog.config

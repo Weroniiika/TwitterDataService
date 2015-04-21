@@ -108,6 +108,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\negative-words.txt" />
+    <Content Include="App_Data\positive-words.txt" />
     <Content Include="TwitterService.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -134,17 +136,30 @@
     <Compile Include="TwitterStreamData.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="DataAccess\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Properties\PublishProfiles\dev.datafromtwitter.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\IISprofile.pubxml" />
+    <None Include="Properties\PublishProfiles\package.pubxml" />
+    <None Include="Properties\PublishProfiles\webservice.datafromtwitter.com - Web Deploy %282%29.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WCFServiceLogger\WCFServiceLogger.csproj">
+      <Project>{e48cbad6-2732-4b9c-aef4-14710630c0cd}</Project>
+      <Name>WCFServiceLogger</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

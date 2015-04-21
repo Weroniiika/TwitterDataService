@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="webservice.datafromtwitter.com" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Weronika\\Documents\\Visual\ Studio\ 2013\\Projects\\TwitterWCFService\\ServiceExample\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Weronika\\Documents\\Visual\ Studio\ 2013\\Projects\\TwitterWCFService\\ServiceExample\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Add write permission to App_Data Folder" description="Add write permission to App_Data folder" value="webservice.datafromtwitter.com/App_Data" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Weronika\\Documents\\Visual\ Studio\ 2013\\Projects\\TwitterWCFService\\ServiceExample\\obj\\Release\\Package\\PackageTmp\\App_Data$" />
+  </parameter>
+  <parameter name="datafrom_twitterdata-Web.config Connection String" description="" value="Server=localhost;Database=datafrom_twitterdata;User ID=datafrom_dbuser;Password=1qapl,2ws" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Weronika\\Documents\\Visual\ Studio\ 2013\\Projects\\TwitterWCFService\\ServiceExample\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='datafrom_twitterdata']/@connectionString" />
+  </parameter>
+</parameters>

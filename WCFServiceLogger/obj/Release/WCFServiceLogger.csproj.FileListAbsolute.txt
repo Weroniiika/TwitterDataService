@@ -1,0 +1,5 @@
+C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\WCFServiceLogger\bin\Release\WCFServiceLogger.dll
+C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\WCFServiceLogger\bin\Release\WCFServiceLogger.pdb
+C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\WCFServiceLogger\obj\Release\WCFServiceLogger.csprojResolveAssemblyReference.cache
+C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\WCFServiceLogger\obj\Release\WCFServiceLogger.dll
+C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\WCFServiceLogger\obj\Release\WCFServiceLogger.pdb

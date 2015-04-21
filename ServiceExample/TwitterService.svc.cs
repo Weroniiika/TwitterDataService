@@ -47,7 +47,8 @@ namespace TwitterWCFService
                     }
                     else
                     {
-                        throw new Exception("Queueing tweets failed.");
+                        //throw new Exception("Queueing tweets failed.");
+                        throw exQueueTweets;
                     }
                 }
                 else
@@ -59,7 +60,11 @@ namespace TwitterWCFService
             catch(Exception ex)
             {
                 logger.Error(String.Format("Exception while processing request from client; method name: {0}", MethodBase.GetCurrentMethod().Name), ex);
-                throw new FaultException<StreamFaultInfo>(new StreamFaultInfo() { Description = ex.Message, RequestInfo = data }, new FaultReason(ex.Message));
+                throw new FaultException<StreamFaultInfo>(
+                    new StreamFaultInfo() { 
+                        Description = ex.Message, 
+                        RequestInfo = data }, 
+                new FaultReason(ex.Message + ((ex.InnerException == null)?"":ex.InnerException.Message)));
             }
         }
 

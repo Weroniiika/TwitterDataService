@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Hosting;
 using System.IO;
 using System.Text.RegularExpressions;
 using NLog;
@@ -13,8 +14,8 @@ namespace TwitterWCFService
         private readonly List<string> negativeWordsDict;
         private readonly List<string> positiveWordsDict;
 
-        private string negativDictFile = @"../../../negative-words.txt";
-        private string positiveDictFile = @"../../../positive-words.txt";
+        private string negativDictFile = HostingEnvironment.MapPath("~/App_Data/negative-words.txt");
+        private string positiveDictFile = HostingEnvironment.MapPath("~/App_Data/positive-words.txt");
 
         private Logger logger = LogManager.GetLogger("SentimentAnalyzer");
         private static readonly SentimentAnalyzer instance = new SentimentAnalyzer();

@@ -1,0 +1,4 @@
+C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\WCFServiceLogger\bin\Debug\WCFServiceLogger.dll
+C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\WCFServiceLogger\bin\Debug\WCFServiceLogger.pdb
+C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\WCFServiceLogger\obj\Debug\WCFServiceLogger.dll
+C:\Users\Weronika\Documents\Visual Studio 2013\Projects\TwitterWCFService\WCFServiceLogger\obj\Debug\WCFServiceLogger.pdb

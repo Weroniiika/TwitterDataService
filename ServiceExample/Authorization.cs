@@ -18,26 +18,21 @@ public class Authorization
     private static readonly string trackParam = "track";
     private static readonly string delimitedParam = "delimited";
     private static readonly string delimitedValue = "length";
-    //private static readonly string languageParam = "language";
-    //private static readonly string languageValue = "en";
     private static readonly string consumerKey = "oauth_consumer_key";
-    private static readonly string consumerKeyValue = "OgYdsJJ4nhAuJIAyZQXSJ1skI";
+    private static readonly string consumerKeyValue = ""; //here you provide your consumer key value
     private static readonly string signatureMethod = "oauth_signature_method";
     private static readonly string signatureMethodValue = "HMAC-SHA1";
     private static readonly string token = "oauth_token";
-    private static readonly string tokenValue = "1407562602-4ls7G5vPJuxKHx2jalitzYicJJcKy6d2D3CzTDQ";
+    private static readonly string tokenValue = ""; //here you provide your application token value
     private static readonly string version = "oauth_version";
     private static readonly string versionValue = "1.0";
     private static readonly string nonce = "oauth_nonce";
     private static readonly string timestamp = "oauth_timestamp";
     private static readonly string signature = "oauth_signature";
 
-    private static readonly string tokenSecretValue = "ygdsrIKcCMK9YMEETb181YrKZLrmnrlWJaJF4oFwJp7EM";
-    private static readonly string consumerSecretValue = "Xw8IbpIxU7sZpodyMHIPjVUiZgm9SYS6xsiky8HX1KYTvtcwUp";
+    private static readonly string tokenSecretValue = ""; //here you provide your application token secret value
+    private static readonly string consumerSecretValue = ""; //here you provide your consumer secret value
 
-    //private static readonly string includeEntities = "include_entities";
-    //private static readonly string includeEntitiesValue = "true";
-    
     ///<summary>
     ///This is main method that returns authorization string. It calls other helper methods to obtain proper fields values. The values are then used to create url-encoded authorization string according to Twitter directives
     ///</summary>

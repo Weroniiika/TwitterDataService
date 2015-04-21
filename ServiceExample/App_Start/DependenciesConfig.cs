@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Autofac;
 using Autofac.Util;
+using WCFServiceLogger;
 
 namespace TwitterWCFService.App_Start
 {
@@ -11,6 +12,8 @@ namespace TwitterWCFService.App_Start
     {
         public static void RegisterDependencies()
         {
+            var builder = new ContainerBuilder();
+            builder.RegisterType<Logger>().As<ILogger>().SingleInstance();
         }
     }
 }

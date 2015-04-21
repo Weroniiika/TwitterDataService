@@ -29,7 +29,7 @@ namespace TwitterWCFService
         private int numberOfTweetsReadFromStream = 0;
         private int numberOfTweetsAlreadyInDB = 0;
         private int parsingErrors = 0;
-        private static int noMinutesForTweetCollection = 60;
+        private static int noMinutesForTweetCollection = 15;
         private bool allTweetsReceivedByReader = false; //flag information stating if BinaryReader received all tweets and put them in the rawTweets BlockingCollection; it means QueueTweets method ended processing;
 
         private HttpWebRequest request;
@@ -159,55 +159,59 @@ namespace TwitterWCFService
                     //notify TwitterService that the reader started and ParseAndInsertTweetsToDB() method can be called as a task
                     StringBuilder lengthChar = new StringBuilder();
                     Stopwatch timer = Stopwatch.StartNew();
-                    while (timer.IsRunning && timer.Elapsed.TotalMinutes < noMinutesForTweetCollection)
+                    for (int twittCounter = 0; twittCounter < requestInfo.NumberTweets; twittCounter++)
                     {
-                        for (int twittCounter = 0; twittCounter < requestInfo.NumberTweets; twittCounter++)
-                        {
-                            lengthChar.Length = 0;
+                        lengthChar.Length = 0;
 
-                            //get the size of the tweet
+                        //get the size of the tweet
                        
-                            char readChar = reader.ReadChar();
-                            while (!(readChar.Equals('\n') || readChar.Equals('\r')))
-                            {
-                                lengthChar.Append(readChar);
-                                readChar = reader.ReadChar();
-                            }
-                            //following conditional statement ensures proper handling of extra empty lines between tweets
-                            if (lengthChar.Length == 0)
-                            {
-                                twittCounter--;
-                                continue;
-                            }
-
-                            //according to Twitter documentation number indicating size of the tweet is followed by an empty line
-                            SkipEmptyLine(reader);
-
-                            //get array of bytes with Tweet data and read it to JSON format Tweet string
-                            int length = Int16.Parse(lengthChar.ToString());
-                            byte[] twittBuffer = new byte[length];
-                            twittBuffer = reader.ReadBytes(length);
-                            string tweet = System.Text.Encoding.ASCII.GetString(twittBuffer);
-
-                            AddJSONTweetToRawTweets(tweet);
-                            numberOfTweetsReadFromStream++;
+                        char readChar = reader.ReadChar();
+                        while (!(readChar.Equals('\n') || readChar.Equals('\r')))
+                        {
+                            lengthChar.Append(readChar);
+                            readChar = reader.ReadChar();
                         }
-                        timer.Stop();
+                        //following conditional statement ensures proper handling of extra empty lines between tweets
+                        if (lengthChar.Length == 0)
+                        {
+                            twittCounter--;
+                            continue;
+                        }
+
+                        //according to Twitter documentation number indicating size of the tweet is followed by an empty line
+                        SkipEmptyLine(reader);
+
+                        //get array of bytes with Tweet data and read it to JSON format Tweet string
+                        int length = Int16.Parse(lengthChar.ToString());
+                        byte[] twittBuffer = new byte[length];
+                        twittBuffer = reader.ReadBytes(length);
+                        string tweet = System.Text.Encoding.ASCII.GetString(twittBuffer);
+
+                        AddJSONTweetToRawTweets(tweet);
+                        numberOfTweetsReadFromStream++;
+                        
+                        //stop tweet collection if the time limit was reached
+                        if (!timer.IsRunning || !(timer.Elapsed.TotalMinutes < noMinutesForTweetCollection)) {
+                            timer.Stop();
+                            break;
+                        }
                     }
+                    if (timer.IsRunning)
+                        timer.Stop();
                 }
-                readerTimer.Stop();
-                stream.Close();
                 logger.Info(String.Format("Reading of stream and queueing tweets successfully ended in time: {0}; number of tweets read: {1};", readerTimer.Elapsed, numberOfTweetsReadFromStream));
                 return true;
             }
             catch (Exception ex)
             {
                 logger.Error(String.Format("Exception while reading stream from Twitter. Number of tweets read: {0}; Method name: {1};", numberOfTweetsReadFromStream, MethodBase.GetCurrentMethod().Name),ex);
-                throw;
+                return false;
             }
             finally
             {
                 rawTweets.CompleteAdding();
+                readerTimer.Stop();
+                stream.Close();
             }
         } 
 
@@ -290,22 +294,22 @@ namespace TwitterWCFService
                     {
                         parsingErrors++;
                         //log ex
-                        logger.Error("Error while parsing tweet.", ex);
+                        logger.Error(String.Format("Error while parsing tweet. Full tweet string: {0}", t), ex);
 
-                        //clean up other entities if tweet was not successfully added
-                        if (dbContext.Tweets.Find(tweet.TweetId, tweet.RequestId) == null)
+                        //clean up other entities if tweet was not successfully added, otherwise mark this tweet data as parsed with errors
+                        if (dbContext.Entry(tweet).State == EntityState.Detached)
                         {
-                            if (!(dbContext.Users.Find(user.UserId) == null))
+                            if (!(user == null) && !(dbContext.Entry(user).State == EntityState.Detached))
                                 dbContext.Users.Remove(user);
 
-                            if (!(dbContext.Places.Find(place.PlaceId) == null))
+                            if (!(place == null) && !(dbContext.Entry(place).State == EntityState.Detached))
                                     dbContext.Places.Remove(place);
                             
                             if (!(mediaList == null) && mediaList.Count > 0)
                             {
                                 foreach (Media media in mediaList)
                                 {
-                                    if (!(dbContext.Media.Find(media.MediaId) == null))
+                                    if (!(dbContext.Entry(media).State == EntityState.Detached))
                                     {
                                         dbContext.Media.Remove(media);
                                     }
@@ -371,6 +375,10 @@ namespace TwitterWCFService
             if (dbContext.Users.Find(user.UserId) == null)
             {
                 dbContext.Users.Add(user);
+            }
+            else
+            {
+                logger.Info("check");
             }
             return user;
         }
